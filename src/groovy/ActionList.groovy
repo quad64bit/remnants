@@ -1,4 +1,3 @@
 class ActionList{
 	def actions = []
-
 }
