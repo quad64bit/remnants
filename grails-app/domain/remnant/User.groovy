@@ -1,6 +1,7 @@
 package remnant
 
 class User {
+    Pack pack
 
 	transient springSecurityService
 
