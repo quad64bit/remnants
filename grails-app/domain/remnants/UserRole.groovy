@@ -1,4 +1,4 @@
-package remnant
+package remnants
 
 import org.apache.commons.lang.builder.HashCodeBuilder
 

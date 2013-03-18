@@ -1,3 +1,4 @@
+package remnants
 /**
  * Created with IntelliJ IDEA.
  * User: Steffen Gates
@@ -8,6 +9,10 @@
 class Game {
     def withState(savedGameState){
         //start a game from the saved user game state
+    }
+
+    def newGame(){
+        println Room.count()
     }
 
     def processAction(action){

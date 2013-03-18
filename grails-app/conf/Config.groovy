@@ -65,7 +65,7 @@ environments {
     }
     production {
         grails.logging.jul.usebridge = false
-        // TODO: grails.serverURL = "http://www.changeme.com"
+        grails.serverURL = "http://www.steffengates.com:8080"
     }
 }
 
@@ -77,7 +77,7 @@ log4j = {
     //    console name:'stdout', layout:pattern(conversionPattern: '%c{2} %m%n')
     //}
 
-    error  'org.codehaus.groovy.grails.web.servlet',        // controllers
+    info  'org.codehaus.groovy.grails.web.servlet',        // controllers
            'org.codehaus.groovy.grails.web.pages',          // GSP
            'org.codehaus.groovy.grails.web.sitemesh',       // layouts
            'org.codehaus.groovy.grails.web.mapping.filter', // URL mapping
@@ -91,6 +91,6 @@ log4j = {
 }
 
 // Added by the Spring Security Core plugin:
-grails.plugins.springsecurity.userLookup.userDomainClassName = 'remnant.User'
-grails.plugins.springsecurity.userLookup.authorityJoinClassName = 'remnant.UserRole'
-grails.plugins.springsecurity.authority.className = 'remnant.Role'
+grails.plugins.springsecurity.userLookup.userDomainClassName = 'remnants.User'
+grails.plugins.springsecurity.userLookup.authorityJoinClassName = 'remnants.UserRole'
+grails.plugins.springsecurity.authority.className = 'remnants.Role'

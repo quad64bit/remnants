@@ -1,4 +1,4 @@
-package remnant
+package remnants
 
 class Pack {
     static hasMany = [items:Item]

@@ -1,4 +1,4 @@
-package remnant
+package remnants
 
 class User {
     Pack pack
