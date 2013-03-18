@@ -4,6 +4,7 @@ class Item {
     String name
     String description
     Boolean luggable
+    Boolean masterItem = true
 
     static hasMany = [compatibleItems:Item, contains:Item]
 

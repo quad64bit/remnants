@@ -15,6 +15,7 @@ class User {
 	static constraints = {
 		username blank: false, unique: true
 		password blank: false
+        pack nullable: true
 	}
 
 	static mapping = {

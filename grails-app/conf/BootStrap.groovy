@@ -3,7 +3,7 @@ import remnants.*
 class BootStrap {
 
     def init = { servletContext ->
-        log.info "Creating initial items"
+        println "Creating initial items"
         def shoe = new Item(  luggable: true,  name:"Old Brown Shoe",       description: "This is the nastiest shoe ever").save()
         def beaker = new Item(luggable: true,  name:"Cracked class beaker", description: "The edges are sharp, and might cut me").save()
         def banana = new Item(luggable: true,  name:"Rotten Banana",        description: "I shouldn't eat this").save()
@@ -31,7 +31,17 @@ class BootStrap {
 
         parlor.addToItems(shoe)
         parlor.addToItems(beaker)
-        log.info "Initial items created"
+        println "Initial items created"
+
+        println "Creating initial roles"
+        def adminRole = new Role(authority:"ADMIN").save()
+        def userRole = new Role(authority:"USER").save()
+        println "Roles created"
+
+        println "Creating initial users"
+        def adminUser = new User(username:"admin", password: "password", enabled: true).save()
+        def userUser = new User(username:"user", password: "password", enabled: true).save()
+        println "Users created"
     }
     def destroy = {
     }
