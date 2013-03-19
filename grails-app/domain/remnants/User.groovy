@@ -1,16 +1,17 @@
 package remnants
 
 class User {
+    transient springSecurityService
+
     Pack pack
-
-	transient springSecurityService
-
-	String username
+    String username
 	String password
 	boolean enabled
 	boolean accountExpired
 	boolean accountLocked
 	boolean passwordExpired
+
+    static hasMany = [games:GameConfig, gameTemplates:GameConfigTemplate]
 
 	static constraints = {
 		username blank: false, unique: true

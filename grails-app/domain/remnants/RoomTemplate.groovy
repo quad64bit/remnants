@@ -1,13 +1,12 @@
 package remnants
 
-class Room {
+class RoomTemplate {
     String name
     String description
     Boolean hidden = false
-    RoomTemplate template
 
-    static hasMany = [exits:Room, items:Item]
-    static belongsTo = [game:GameConfig]
+    static hasMany = [exits:RoomTemplate, items:ItemTemplate]
+    static belongsTo = [game:GameConfigTemplate]
 
     static constraints = {
         description maxSize: 2048

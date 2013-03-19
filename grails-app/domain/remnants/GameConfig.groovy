@@ -3,16 +3,17 @@ package remnants
 class GameConfig {
     String name
     String description
-
+    Long firstRoomID = -1
     Interlude intro
-    Room firstRoom
-    Room winRoom
-    Room loseRoom
+
+    GameConfigTemplate template
+
+    static hasMany = [rooms:Room, items:Item]
+    static belongsTo = [user:User]
 
     static constraints = {
-        firstRoom nullable: false
-        winRoom nullable: false
-        loseRoom nullable: false
-        intro nullable: false
+        intro nullable: true
+        template nullable: false
+        user nullable: true
     }
 }

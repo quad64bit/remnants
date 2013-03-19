@@ -1,8 +1,5 @@
 dataSource {
     pooled = true
-    driverClassName = "org.h2.Driver"
-    username = "sa"
-    password = ""
 }
 hibernate {
     cache.use_second_level_cache = true
@@ -13,6 +10,9 @@ hibernate {
 environments {
     development {
         dataSource {
+            driverClassName = "org.h2.Driver"
+            username = "sa"
+            password = ""
             dbCreate = "create-drop" // one of 'create', 'create-drop', 'update', 'validate', ''
             url = "jdbc:h2:mem:devDb;MVCC=TRUE;LOCK_TIMEOUT=10000"
         }
@@ -25,8 +25,12 @@ environments {
     }
     production {
         dataSource {
-            dbCreate = "update"
-            url = "jdbc:h2:prodDb;MVCC=TRUE;LOCK_TIMEOUT=10000"
+            driverClassName = "com.mysql.jdbc.Driver"
+            dialect = "org.hibernate.dialect.MySQL5InnoDBDialect"
+            username = "root"
+            password = ""
+            dbCreate = "create-drop"
+            url = "jdbc:mysql://localhost:3306/remnants"
             pooled = true
             properties {
                maxActive = -1
