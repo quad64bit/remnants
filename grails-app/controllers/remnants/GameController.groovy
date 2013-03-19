@@ -9,7 +9,10 @@ class GameController {
     def index() { }
 
     @Secured(['ROLE_USER'])
-    def startGame(){ }
+    def startGame(){
+        initGame(getUser())
+        [intro:getUser().currentGame.intro.text]
+    }
 
     @Secured(['ROLE_USER'])
     def clientAction(){
@@ -17,6 +20,7 @@ class GameController {
         processCommand(params.actionText)
     }
 
+    @Secured(['ROLE_USER'])
     def processCommand(String command){
         switch(command){
             case 'help' :
@@ -36,7 +40,7 @@ class GameController {
 
     private String listExits(){
         initGame(getUser())
-        String rooms = "Exits:</br>"
+        String rooms = ""
         getUser().currentRoom.exits.each{ room ->
             rooms += "- ${room.name}"
         }

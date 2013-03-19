@@ -18,7 +18,7 @@ class BootStrap {
 
             println "Creating initial items"
             def shoe = new ItemTemplate(game: gameTemplate, lugable: true, name: "Old Brown Shoe", description: "This is the nastiest shoe ever").save()
-            def beaker = new ItemTemplate(game: gameTemplate, lugable: true, name: "Cracked class beaker", description: "The edges are sharp, and might cut me").save()
+            def beaker = new ItemTemplate(game: gameTemplate, lugable: true, name: "Cracked glass beaker", description: "The edges are sharp, and might cut me").save()
             def banana = new ItemTemplate(game: gameTemplate, lugable: true, name: "Rotten Banana", description: "I shouldn't eat this").save()
             def can = new ItemTemplate(game: gameTemplate, lugable: true, name: "Rusty Can", description: "Looks like it used to contain peaches").save()
             def finger = new ItemTemplate(game: gameTemplate, lugable: true, name: "Severed Finger", description: "It's rotten.").save()

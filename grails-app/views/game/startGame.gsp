@@ -63,7 +63,7 @@
 <g:render template="navBar"/>
 <div class="container" style="margin-top: 75px;">
     <div id="playField" class="well" style="min-height: 250px; max-height: 250px; overflow:auto;">
-        Welcome.
+        ${intro}
     </div>
 
     <div class="container">
