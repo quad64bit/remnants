@@ -9,9 +9,12 @@ class BootStrap {
             GameConfigTemplate gameTemplate = new GameConfigTemplate(
                 name: "Testing the Waters",
                 description: "How does it feel to see what others cannot?",
-                intro: new Interlude(text: "You awake on the floor of a strange room... A parlor of some sort.").save()
             ).save()
+            Interlude intro = new Interlude(text: "You awake on the floor of a strange room... A parlor of some sort.", game: gameTemplate).save()
+            gameTemplate.intro = intro
+            gameTemplate.save()
             assert gameTemplate
+            assert intro
 
             println "Creating initial items"
             def shoe = new ItemTemplate(game: gameTemplate, lugable: true, name: "Old Brown Shoe", description: "This is the nastiest shoe ever").save()

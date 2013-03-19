@@ -11,4 +11,9 @@ class GameConfigTemplate {
     static constraints = {
         intro nullable: true
     }
+
+    def setIntro(intro){
+        this.intro = intro
+        intro.game = this
+    }
 }
