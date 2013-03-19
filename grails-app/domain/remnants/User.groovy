@@ -3,7 +3,10 @@ package remnants
 class User {
     transient springSecurityService
 
+    Room currentRoom
+    GameConfig currentGame
     Pack pack
+
     String username
 	String password
 	boolean enabled
@@ -17,6 +20,8 @@ class User {
 		username blank: false, unique: true
 		password blank: false
         pack nullable: true
+        currentRoom nullable: true
+        currentGame nullable: true
 	}
 
 	static mapping = {

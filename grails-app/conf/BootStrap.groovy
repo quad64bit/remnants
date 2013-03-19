@@ -58,8 +58,8 @@ class BootStrap {
             println "Initial items created"
 
             println "Creating initial roles"
-            def adminRole = new Role(authority: "ADMIN").save()
-            def userRole = new Role(authority: "USER").save()
+            def adminRole = new Role(authority: "ROLE_ADMIN").save()
+            def userRole = new Role(authority: "ROLE_USER").save()
 
             assert userRole
             println "Roles created"
@@ -67,10 +67,15 @@ class BootStrap {
             println "Creating initial users"
             def adminUser = new User(username: "admin", password: "password", enabled: true).save()
             def userUser = new User(username: "user", password: "password", enabled: true).save()
+            assert userUser
 
             userUser.pack = new Pack(user: userUser)
             userUser.save()
             assert userUser
+
+            UserRole.create(adminUser, adminRole, true)
+            UserRole.create(userUser, userRole, true)
+
             println "Users created"
 
             gameTemplate.firstRoomID = parlor.id
