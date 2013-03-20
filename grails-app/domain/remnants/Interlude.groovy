@@ -8,4 +8,8 @@ class Interlude {
     static constraints = {
         text blank: false, maxSize: 5096
     }
+
+    String toString(){
+        name
+    }
 }

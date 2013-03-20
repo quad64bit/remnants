@@ -16,4 +16,8 @@ class GameConfig {
         template nullable: false
         user nullable: true
     }
+
+    String toString(){
+        name
+    }
 }

@@ -7,4 +7,8 @@ class Pack {
 
     static constraints = {
     }
+
+    String toString(){
+        "${user.username}'s Pack"
+    }
 }

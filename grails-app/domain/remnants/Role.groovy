@@ -1,7 +1,6 @@
 package remnants
 
 class Role {
-
 	String authority
 
 	static mapping = {

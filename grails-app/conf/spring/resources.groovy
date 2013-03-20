@@ -1,3 +1,8 @@
-// Place your Spring DSL code here
+import remnants.ApplicationContextHolder
+
 beans = {
+    applicationContextHolder(ApplicationContextHolder) { bean ->
+        bean.factoryMethod = 'getInstance'
+    }
 }
+

@@ -16,4 +16,8 @@ class GameConfigTemplate {
         this.intro = intro
         intro.game = this
     }
+
+    String toString(){
+        name
+    }
 }

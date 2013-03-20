@@ -9,17 +9,17 @@ package remnants
  */
 class CommandParser {
 
-    def getCommandSet(String inputString){
+    static List getCommandList(String inputString){
         def tokens = tokenize(inputString)
         tokens = dropCrap(tokens)
         identifyCommandWords(tokens)
     }
 
-    private tokenize(String inputString) {
+    static private tokenize(String inputString) {
         inputString.toLowerCase().split(" ") as List
     }
 
-    private identifyCommandWords(List inputList){
+    static private identifyCommandWords(List inputList){
         for(int i=0; i<inputList.size(); i++){
             String exchangeWord = commandTable[inputList[i]]
             if(exchangeWord){
@@ -29,7 +29,7 @@ class CommandParser {
         inputList
     }
 
-    private List dropCrap(List inputList){
+    static private List dropCrap(List inputList){
         List newSet = []
         inputList.each { word ->
             if(!crapWords.contains(word)){
@@ -39,13 +39,13 @@ class CommandParser {
         newSet
     }
 
-    private final List crapWords = [
+    static private final List crapWords = [
         "to",
         "with",
         "and"
     ]
 
-    private final Map commandTable = [
+    static final Map commandTable = [
         move:       "go",
         go:         "go",
         travel:     "go",
@@ -54,9 +54,12 @@ class CommandParser {
         sprint:     "go",
         jump:       "go",
         climb:      "go",
+        exits:      "look",
         look:       "look",
         examine:    "look",
         check:      "look",
+        search:     "search",
+        help:       "help",
         use:        "use",
         craft:      "craft",
         combine:    "craft",
