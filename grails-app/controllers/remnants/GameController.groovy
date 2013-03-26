@@ -10,7 +10,7 @@ class GameController {
     @Secured(['ROLE_USER'])
     def startGame(){
         initGame()
-        [intro:getUser().currentGame.intro.text]
+        [intro:"<p class='sepia'>${getUser().currentGame.intro.text}</p>"]
     }
 
     @Secured(['ROLE_USER'])
@@ -40,7 +40,7 @@ class GameController {
 
 
     private pp(String str){
-        render "<p style='margin:0px;'>${str}</p>"
+        render "<p class='sepia' style='margin:0px;'>${str}</p>"
     }
 
     private User getUser(){

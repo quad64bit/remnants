@@ -40,9 +40,25 @@ class CommandParser {
     }
 
     static private final List crapWords = [
+        "a",
+        "and",
+        "as",
+        "at",
+        "be",
+        "by",
+        "for",
+        "he",
+        "his",
+        "in",
+        "is",
+        "it",
+        "of",
+        "on",
+        "that",
+        "the",
         "to",
-        "with",
-        "and"
+        "was",
+        "with"
     ]
 
     static final Map commandTable = [
@@ -54,6 +70,9 @@ class CommandParser {
         sprint:     "go",
         jump:       "go",
         climb:      "go",
+        crawl:      "go",
+        jog:        "go",
+        meander:    "go",
         exits:      "look",
         look:       "look",
         examine:    "look",

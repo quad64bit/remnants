@@ -1,6 +1,8 @@
 package remnants
 
 class Item {
+    transient def stringToolsService
+
     String name
     String description
     Boolean lugable
@@ -18,15 +20,11 @@ class Item {
     }
 
     def beforeUpdate = {
-        updateSearchName()
+        searchName = stringToolsService.cleanAndCatName(name)
     }
 
     def beforeInsert = {
-        updateSearchName()
-    }
-
-    private void updateSearchName(){
-        searchName = name.replaceAll("[^a-zA-Z0-9]", "");
+        searchName = stringToolsService.cleanAndCatName(name)
     }
 
     String toString(){

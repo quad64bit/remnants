@@ -171,6 +171,7 @@ class BootStrap {
             }
 
             userUser.addToGames(gameInstance)
+            println "Loading Complete"
         }
     }
 
