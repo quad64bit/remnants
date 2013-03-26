@@ -57,7 +57,11 @@
         }
 
         .sepia {
-            color: #D99F52;
+            color: #d9be7e;
+        }
+
+        .red{
+            color: #ae0001;
         }
     </style>
 </head>

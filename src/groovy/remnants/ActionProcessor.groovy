@@ -218,9 +218,7 @@ class ActionProcessor {
 
     private static String look() {
         String exitList = "<strong>Exits:</strong><br/>${listExits()}"
-        String header = "<strong>${getCurrentRoomName()}</strong>" + "<br/>"
-        String desc = getCurrentRoom().description + "<br/>"
-        header + desc + exitList
+        getCurrentRoomDescription() + exitList
     }
 
     private static String lookItem(String itemName) {
@@ -277,7 +275,7 @@ class ActionProcessor {
     private static String getCurrentRoomDescription() {
         initGame()
         Room currentRoom = getUser().currentRoom
-        "== ${currentRoom.name} ==<br/>${currentRoom.description}"
+        "<span class='red'><strong>== ${currentRoom.name} ==</strong></span><br/>${currentRoom.description}<br/>"
     }
 
     private static Room getCurrentRoom() {
