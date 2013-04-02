@@ -353,7 +353,7 @@ body {
     <hr class="featurette-divider">
 
     <div class="featurette">
-        <img class="featurette-image pull-right" src="${resource(dir: 'images', file: 'browser-icon-chrome.png')}">
+        <img class="featurette-image pull-right" src="${resource(dir: 'images', file: 'cthulhu-walks.png')}">
 
         <h2 class="featurette-heading">First featurette headling. <span class="muted">It'll blow your mind.</span></h2>
 
@@ -363,7 +363,7 @@ body {
     <hr class="featurette-divider">
 
     <div class="featurette">
-        <img class="featurette-image pull-left" src="${resource(dir: 'images', file: 'browser-icon-firefox.png')}">
+        <img class="featurette-image pull-left" src="${resource(dir: 'images', file: 'science2.png')}">
 
         <h2 class="featurette-heading">Oh yeah, it's that good. <span class="muted">See for yourself.</span></h2>
 
@@ -373,7 +373,7 @@ body {
     <hr class="featurette-divider">
 
     <div class="featurette">
-        <img class="featurette-image pull-right" src="${resource(dir: 'images', file: 'browser-icon-safari.png')}">
+        <img class="featurette-image pull-right" src="${resource(dir: 'images', file: 'hospital.png')}">
 
         <h2 class="featurette-heading">And lastly, this one. <span class="muted">Checkmate.</span></h2>
 
@@ -397,7 +397,6 @@ body {
 <script>
     !function ($) {
         $(function () {
-            // carousel demo
             $('#myCarousel').carousel()
         })
     }(window.jQuery)

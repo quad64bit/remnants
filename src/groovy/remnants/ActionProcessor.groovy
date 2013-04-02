@@ -186,11 +186,7 @@ class ActionProcessor {
 
     private static String listExits() {
         initGame()
-        String rooms = ""
-        getUser().currentRoom.exits.each { room ->
-            rooms += "- ${room.name}<br/>"
-        }
-        rooms
+        getUser().currentRoom.exitString
     }
 
     private static String goLoc(String location) {
@@ -205,11 +201,18 @@ class ActionProcessor {
     }
 
     private static String help() {
-        return """Available Commands:<br/>- ${CommandParser.commandTable.keySet().join('<br/>- ')}"""
+        return "Available Commands:<br/>- ${CommandParser.commandTable.keySet().join('<br/>- ')}"
     }
 
     private static String goDir(String direction) {
-        return "goDir $direction"
+        initGame()
+        Room dest = getCurrentRoom()."${direction}"
+        if (dest){
+            setCurrentRoom(dest)
+            return "You enter the ${dest.name}."
+        } else{
+            return "You cannot go ${direction} from here."
+        }
     }
 
     private static String goDirItem(String direction, String item) {

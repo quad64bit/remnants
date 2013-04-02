@@ -69,22 +69,24 @@
 <body>
 <g:render template="navBar"/>
 <div class="container" style="margin-top: 75px;">
-    <div id="playField" class="well" style="min-height: 250px; max-height: 250px; overflow:auto;">
+    <div id="playField" class="well" style="min-height: 250px; max-height: 250px; overflow:auto; margin-right: 0px;">
         ${intro}
     </div>
 
     <div class="container">
-        <g:textArea class="container" name="textInput" id="inputField" style="background-color: black;"/>
+        <g:textArea class="container" name="textInput" id="inputField" style="background-color: black; max-width: 1156px;"/>
     </div>
 </div>
 
 <r:script>
+    jQuery('#inputField').focus()
+
     jQuery('#inputField').bind('keypress', function (e) {
         switch (e.which) {
             case 13:
                 postBack(); //return
         }
-    })
+    });
 
     function postBack() {
         jQuery.post("/Remnants/game/clientAction", { actionText: jQuery('#inputField').val() }, function (response) {

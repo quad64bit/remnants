@@ -40,12 +40,15 @@ class BootStrap {
 
             assert kitchen
 
-            drawingRoom.addToExits(parlor)
-            drawingRoom.addToExits(kitchen)
+            drawingRoom.north = parlor
+            drawingRoom.south = kitchen
 
-            parlor.addToExits(drawingRoom)
-            kitchen.addToExits(drawingRoom)
-            drawingRoom.addToExits(kitchen)
+            parlor.south = drawingRoom
+            kitchen.north = drawingRoom
+
+            assert drawingRoom.save()
+            assert parlor.save()
+            assert kitchen.save()
 
             drawingRoom.addToItems(book)
             drawingRoom.addToItems(box)
@@ -161,9 +164,14 @@ class BootStrap {
             gameTemplate.rooms.each{ roomTemplate ->
                 Room roomInstance = Room.get(roomMap[roomTemplate.id])
                 assert roomInstance
-                roomTemplate.exits.each{ roomTemplateExit ->
-                    roomInstance.addToExits(Room.get(roomMap[roomTemplateExit.id]))
-                }
+
+                if(roomTemplate.north){roomInstance.north = Room.get(roomMap[roomTemplate.north.id])}
+                if(roomTemplate.south){roomInstance.south = Room.get(roomMap[roomTemplate.south.id])}
+                if(roomTemplate.east){roomInstance.east =  Room.get(roomMap[roomTemplate.east.id])}
+                if(roomTemplate.west){roomInstance.west =  Room.get(roomMap[roomTemplate.west.id])}
+                if(roomTemplate.up){roomInstance.up =    Room.get(roomMap[roomTemplate.up.id])}
+                if(roomTemplate.down){roomInstance.down =  Room.get(roomMap[roomTemplate.down.id])}
+
                 roomTemplate.items.each{ itemTemplate ->
                     roomInstance.addToItems(Item.get(itemMap[itemTemplate.id]))
                     itemDive(itemTemplate, Item.get(itemMap[itemTemplate.id]), itemMap)
